@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWAPE</title>
+    <link rel="icon" type="image/x-icon" href="img/4.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Henny Penny', cursive;
+            background: linear-gradient(to bottom right, #838383, #ffffff, #000000);
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background: rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 4px solid #ffffff;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .navbar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #000000;
+        }
+
+        .nav-links a::before {
+            content: '⭐';
+            position: absolute;
+            left: -20px;
+            top: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000, #000000);
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px #ffffff;
+        }
+
+        .hero img {
+            max-width: 220px;
+            margin-top: 20px;
+            animation: bounce 2s infinite ease-in-out;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        /* About Section */
+        .about {
+            padding: 50px 20px;
+            background: linear-gradient(to right, #ffffff, #ffffff);
+            clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+            color: #000;
+        }
+
+        .about h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .about h2::after {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: -10px;
+        }
+
+        .about p {
+            font-size: 22px;
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 50px 20px;
+            background: linear-gradient(to left, #000000, #000000);
+        }
+
+        .gallery h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Tconomic Section */
+        .tconomic {
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #ffffff, #ffffff);
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+            color: #000000;
+        }
+
+        .tconomic h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .tconomic p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .copy-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .copy-text input {
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            margin-right: 10px;
+            background: #fff;
+            color: #000;
+        }
+
+        .copy-text button {
+            background: #060606;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .copy-text button:hover {
+            background: #e67e22;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            padding: 50px 20px;
+            background: linear-gradient(45deg, #c3cfe2, #f5f7fa);
+            color: #333;
+            clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
+        }
+
+        .roadmap h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .roadmap ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .roadmap ul li {
+            font-size: 20px;
+            margin: 10px 0;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .roadmap ul li::before {
+            content: '🚀';
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+            top: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #f39c12;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">SWAPE</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#tconomic">Teconomic</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>SWAPE </h1>
+        <img src="img/4.jpeg" alt="Funny Meme">
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About $SWAPE</h2>
+        <p>Swape is a meme coin designed to blend humor, creativity, and profit potential in the world of
+            cryptocurrency. With the ticker SWAPE, this token embraces a lighthearted theme while maintaining strong
+            fundamentals to attract the crypto community.</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <img src="img/1.jpeg"
+                alt="Meme 1">
+            <img src="img/2.jpeg"
+                alt="Meme 2">
+            <img src="img/3.jpeg"
+                alt="Meme 3">
+            <img src="img/4.jpeg"
+                alt="Meme 4">
+        </div>
+    </section>
+
+    <!-- Tconomic Section -->
+    <section id="TOKENOMICS" class="tconomic">
+        <h2>TOKENOMICS</h2>
+        <p>Token Name = $SWAPE</p>
+        <p>TICKER = $SWAPE</p>
+        <p>TOTAL SUPPLY = 1,000,000,000</p>
+        <p>LIQUIDITY POOL BURNED = 100%</p>
+        <p>TAXES = 0%</p>
+        <div class="copy-text">
+            <input type="text" value="CA:XXXXXXXXXXXXXXX" readonly>
+            <button onclick="navigator.clipboard.writeText('XXXXXXXXXXXXXXX')">COPY</button>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap">
+        <h2>Roadmap 🚀</h2>
+        <ul>
+            <p>1. Define Goals and Objectives</p>
+            <p>2. Identify Steps and Phases</p>
+            <p>3. Schedule Tasks and Phases</p>
+            <p>4. Allocate Resources</p>
+            <p>5. Choose Roadmap Format</p>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Follow us on:</p>
+        <a href="https://x.com/swapedev" target="_blank">Twitter</a> |
+        <a href="https://t.me/swapedevsol" target="_blank">Telegram</a> |
+        <a href="https://pump.fun" target="_blank">Pump.fun</a>
+    </footer>
+</body>
+
+</html>
